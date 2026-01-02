@@ -1,0 +1,14 @@
+:root {
+    --desklog-green: #8cc63f;
+    /* The main green from the sample */
+    --desklog-text-dark: #333333;
+    --desklog-border-light: #f0f0f0;
+}
+
+.btn-start {
+    background-color: var(--desklog-green);
+    color: white;
+    border-radius: 25px;
+    /* Rounded buttons like the sample */
+    padding: 10px 25px;
+}
