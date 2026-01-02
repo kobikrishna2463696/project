@@ -1,0 +1,99 @@
+/* src/app/roles/auth/home/features/features.component.css */
+
+.hero-wrapper {
+    /* Exact gradient background from Desklog sample */
+    background: radial-gradient(circle at top left, #f3faeb 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* Vertical Center */
+    justify-content: center;
+    /* Horizontal Center */
+    padding: 20px;
+    text-align: center;
+}
+
+.content-center {
+    max-width: 850px;
+}
+
+.tagline {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.main-title {
+    font-size: 4rem;
+    /* Bold, Large Font */
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.green-text {
+    color: #8cc63f;
+    /* Desklog Signature Green */
+}
+
+.description {
+    font-size: 1.15rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Button Container Centering */
+.btn-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.btn-fill {
+    background-color: #8cc63f;
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(140, 198, 63, 0.3);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline {
+    background: white;
+    border: 1.5px solid #8cc63f;
+    color: #8cc63f;
+    padding: 16px 40px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.info-badges {
+    font-size: 0.85rem;
+    color: #888;
+    letter-spacing: 0.5px;
+}
+
+.info-badges span {
+    margin: 0 10px;
+}
+
+/* Responsive fix for small screens */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+}
