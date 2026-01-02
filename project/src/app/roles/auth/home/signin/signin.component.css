@@ -1,0 +1,7 @@
+.btn-primary-auth {
+    background: var(--desklog-blue-grad);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 25px;
+    border: none;
+}
