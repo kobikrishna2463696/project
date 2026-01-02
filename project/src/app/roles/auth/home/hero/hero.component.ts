@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-
+import { Component } from "@angular/core";
 @Component({
   selector: 'app-hero',
   imports: [],
@@ -7,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
+  // Additional properties or methods can be added here if needed
 
 }
