@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: 'Inter', sans-serif; /* Recommended clean font */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  color: #1a1a1a;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-links li:hover {
+  color: #8CC63F; /* The primary green from the image */
+}
+
+.nav-actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* Login Button: Outline style */
+.btn-login {
+  background: transparent;
+  border: 1.5px solid #8CC63F;
+  color: #8CC63F;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Start Free Button: Solid Green */
+.btn-start {
+  background-color: #8CC63F;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-start:hover {
+  background-color: #7db337;
+}
