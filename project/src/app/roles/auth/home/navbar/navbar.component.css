@@ -35,21 +35,51 @@
   color: #333;
 }
 
+/* Ensure the parent list doesn't have default styling */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 30px;
-  color: #1a1a1a;
-  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Base style for your links */
+.nav-item {
+  /* This matches the logo color */
+  color: #1a1a1a; 
+  font-weight: 600; /* Matching the weight of 'TimeTrack' */
+  font-size: 16px;
   cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+/* Subtle hover effect so users know it's clickable */
+.nav-item:hover {
+  color: #8CC63F; /* Changes to your theme green on hover */
+}
+
+/* Ensure the TimeTrack logo text matches */
+.logo-text {
+  color: #1a1a1a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* If you are using <a> tags inside <li>, use this: */
+.nav-links li a {
+  color: #1a1a1a;
+  text-decoration: none;
 }
 
 .nav-actions {
-  display: flex; /* Makes buttons sit side-by-side */
-  align-items: center; /* Keeps them perfectly aligned vertically */
-  gap: 12px; /* Space between the two buttons */
+  display: flex;       /* This is the key to make them parallel */
+  flex-direction: row; /* Horizontal alignment */
+  align-items: center; /* Vertically centers both buttons */
+  gap: 12px;           /* Adjust this for the space between the buttons */
 }
-
 /* Buttons Styling */
 .btn-login {
   background: transparent;
@@ -61,9 +91,10 @@
   font-size: 15px;
   cursor: pointer;
   transition: all 0.2s;
-  height: 42px; /* Fixed height ensures both buttons match */
+  height: 42px; 
   display: flex;
   align-items: center;
+  white-space: nowrap; /* Prevents text from wrapping */
 }
 
 .btn-login:hover {
@@ -83,9 +114,11 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 42px; /* Matches Login button height */
+  height: 42px; 
   transition: background 0.2s;
+  white-space: nowrap; /* Prevents text from wrapping */
 }
+
 .btn-start:hover {
   background-color: #7db337;
 }
