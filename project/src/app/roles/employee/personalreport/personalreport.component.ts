@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-personalreport',
-  imports: [],
+  selector: 'app-personal-reports', // This MUST match the tag in your HTML
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './personalreport.component.html',
-  styleUrl: './personalreport.component.css'
+  styleUrls: ['./personalreport.component.css']
 })
-export class PersonalreportComponent {
-
-}
+export class PersonalreportsComponent { } // Note the capitalized 'P'
