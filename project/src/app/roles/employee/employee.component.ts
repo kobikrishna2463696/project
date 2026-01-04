@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { DashboardemployeeComponent } from './dashboard/dashboard.component';
-import { employeeGuard } from '../../core/services/guards/employee.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @Component({
   selector: 'app-employee',
-  imports: [DashboardemployeeComponent],
+  imports: [DashboardComponent],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
