@@ -1,1 +1,76 @@
-<p>manageusers works!</p>
+<div class="manage-users-container">
+
+    <div class="panel-header">
+        <h2 class="title">User Management</h2>
+        <button class="btn-add-user">
+            <i class="bi bi-plus"></i> Add User
+        </button>
+    </div>
+
+    <div class="filter-row">
+        <div class="search-wrapper">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search users..." class="search-input">
+        </div>
+
+        <div class="dropdown-group">
+            <select class="filter-select">
+                <option>All Roles</option>
+                <option>Admin</option>
+                <option>Manager</option>
+                <option>Employee</option>
+            </select>
+
+            <select class="filter-select">
+                <option>All Departments</option>
+                <option>Engineering</option>
+                <option>IT</option>
+                <option>Marketing</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td class="font-medium">{{ user.name }}</td>
+                    <td class="text-secondary">{{ user.email }}</td>
+                    <td>
+                        <span class="role-badge" [ngClass]="user.role.toLowerCase()">
+                            {{ user.role }}
+                        </span>
+                    </td>
+                    <td>{{ user.department }}</td>
+                    <td>
+                        <span class="status-pill active">
+                            {{ user.status }}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="type-tag">{{ user.type }}</span>
+                    </td>
+                    <td class="action-cell">
+                        <button class="icon-btn edit" title="Edit User">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="icon-btn delete" title="Deactivate User">
+                            <i class="bi bi-person-x"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

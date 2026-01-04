@@ -1,0 +1,107 @@
+.manage-users-container {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.btn-add-user {
+    background-color: #6366f1;
+    /* Purple Theme */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.search-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th {
+    text-align: left;
+    padding: 15px;
+    color: #64748b;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.user-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.status-pill.active {
+    background: #f0fdf4;
+    color: #22c55e;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.role-badge.admin {
+    color: #a855f7;
+    background: #faf5ff;
+}
+
+.role-badge.manager {
+    color: #3b82f6;
+    background: #eff6ff;
+}
+
+.action-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.icon-btn.edit:hover {
+    color: #6366f1;
+}
+
+.icon-btn.delete:hover {
+    color: #ef4444;
+}

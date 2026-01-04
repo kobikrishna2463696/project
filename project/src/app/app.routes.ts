@@ -5,8 +5,9 @@ import { AdminComponent } from './roles/admin/admin.component';
 import { ManagerComponent } from './roles/manager/manager.component';
 
 export const routes: Routes = [
-    {path: '',component:HomeComponent},
-    {path:'employee',component:EmployeeComponent},
-    {path:'admin',component:AdminComponent},
-    {path:'manager',component:ManagerComponent}
+    { path: '', component: HomeComponent },
+    { path: 'employee', component: EmployeeComponent },
+    { path: 'admin', component: AdminComponent },
+    { path: 'manager', component: ManagerComponent },
+
 ];
