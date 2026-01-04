@@ -1,0 +1,36 @@
+<section class="features-section">
+  <div class="container">
+    <div class="section-header">
+      <h4 class="sub-title">FEATURES</h4>
+      <h2 class="main-title">Better Management, Better Growth</h2>
+    </div>
+
+    <div class="grid-container">
+      <div 
+        *ngFor="let feature of features; let i = index" 
+        class="feature-card"
+        [ngClass]="{'pop-effect': hoveredIndex === i}"
+        (mouseenter)="setHover(i)"
+        (mouseleave)="setHover(null)"
+      >
+        <div class="icon-wrapper">{{ feature.icon }}</div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="feature-highlight">
+  <div class="highlight-content">
+    <h2 class="highlight-title">
+      <span class="green-text">Employee Time Tracking</span> 
+      <span class="dark-text">to Manage Projects, Tasks & Deadlines</span>
+    </h2>
+    <p class="highlight-description">
+      Tame your multiple projects with a <a href="#" class="link">project time tracker</a> that does more than just count time. 
+      Take advantage of instant project progress reports, task timelines, and easy invoicing—All in One.
+    </p>
+  </div>
+</section>

@@ -1,13 +1,32 @@
+/* Base Navbar - Initial Transparent State */
 .navbar {
+  position: fixed; /* Keeps it 'static' at the top of the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays above all other content */
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
-  background-color: #ffffff;
-  border-bottom: 1px solid #f0f0f0;
-  font-family: 'Inter', sans-serif; /* Recommended clean font */
+  padding: 20px 5%; 
+  
+  background-color: transparent; /* Start transparent */
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s ease-in-out; /* Smooth transition for color and padding */
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
+/* Scrolled State - Triggered by Angular [class.scrolled] */
+.navbar.scrolled {
+  background-color: #ffffff; /* Change to white */
+  padding: 12px 5%; /* Slightly 'shrink' for a modern feel */
+  border-bottom: 1px solid #f0f0f0; /* Subtle line to separate from content */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+}
+
+/* Typography and Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -25,40 +44,48 @@
   cursor: pointer;
 }
 
-.nav-links li:hover {
-  color: #8CC63F; /* The primary green from the image */
-}
-
 .nav-actions {
-  display: flex;
-  gap: 15px;
+  display: flex; /* Makes buttons sit side-by-side */
+  align-items: center; /* Keeps them perfectly aligned vertically */
+  gap: 12px; /* Space between the two buttons */
 }
 
-/* Login Button: Outline style */
+/* Buttons Styling */
 .btn-login {
   background: transparent;
-  border: 1.5px solid #8CC63F;
+  border: 1px solid #8CC63F;
   color: #8CC63F;
-  padding: 10px 25px;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 15px;
   cursor: pointer;
+  transition: all 0.2s;
+  height: 42px; /* Fixed height ensures both buttons match */
+  display: flex;
+  align-items: center;
 }
 
-/* Start Free Button: Solid Green */
+.btn-login:hover {
+  background-color: rgba(140, 198, 63, 0.05);
+}
+
 .btn-start {
   background-color: #8CC63F;
   border: none;
   color: white;
-  padding: 10px 25px;
-  border-radius: 8px;
+  padding: 8px 24px;
+  border-radius: 6px;
   font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  height: 42px; /* Matches Login button height */
+  transition: background 0.2s;
 }
-
 .btn-start:hover {
   background-color: #7db337;
 }
