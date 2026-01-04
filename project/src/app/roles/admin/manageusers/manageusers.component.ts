@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Required for search input
+import { FormsModule } from '@angular/forms';
 
-// Define the User interface for strict typing
 interface User {
   name: string;
   email: string;
@@ -17,28 +16,117 @@ interface User {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './manageusers.component.html',
-  styleUrls: ['./manageusers.component.css']
+  styleUrl: './manageusers.component.css'
 })
 export class ManageusersComponent {
-  // Exact data from your high-fidelity screenshot
-  users: User[] = [
-    { name: 'John Smith', email: 'john.smith@company.com', role: 'Employee', department: 'Engineering', status: 'Active', type: 'Demo' },
-    { name: 'Sarah Johnson', email: 'sarah.johnson@company.com', role: 'Manager', department: 'Engineering', status: 'Active', type: 'Demo' },
-    { name: 'Michael Brown', email: 'michael.brown@company.com', role: 'Admin', department: 'IT', status: 'Active', type: 'Demo' },
-    { name: 'Emily Davis', email: 'emily.davis@company.com', role: 'Employee', department: 'Engineering', status: 'Active', type: 'Demo' },
-    { name: 'David Wilson', email: 'david.wilson@company.com', role: 'Employee', department: 'Engineering', status: 'Active', type: 'Demo' },
-    { name: 'Lisa Anderson', email: 'lisa.anderson@company.com', role: 'Employee', department: 'Marketing', status: 'Active', type: 'Demo' }
+  isModalOpen: boolean = false;
+  isEditMode: boolean = false;
+  editingUserEmail: string | null = null;
+  searchTerm: string = '';
+
+  newUser: User = {
+    name: '',
+    email: '',
+    role: 'Employee',
+    department: '.NET',
+    status: 'Active',
+    type: 'Demo'
+  };
+
+  allUsers: User[] = [
+    { name: 'Kobikrishna', email: 'kobikrishna@company.com', role: 'Admin', department: 'Cloud', status: 'Active', type: 'Demo' },
+    { name: 'Umesh', email: 'umesh@company.com', role: 'Manager', department: 'Java', status: 'Active', type: 'Demo' },
+    { name: 'Chandhana', email: 'chandhana@company.com', role: 'Employee', department: '.NET', status: 'Active', type: 'Demo' },
+    { name: 'Akash', email: 'Akash@company.com', role: 'Employee', department: '.NET', status: 'Active', type: 'Demo' },
+    { name: 'Prachothan', email: 'Prachothan@company.com', role: 'Manager', department: 'Java', status: 'Active', type: 'Demo' }
   ];
 
-  // Logic for the 'Add User' button
-  addUser() {
-    console.log('Opening add user modal...');
-    // You can implement modal logic here
+  filteredUsers: User[] = [...this.allUsers];
+
+  // --- STAT GETTERS (Fixes NG5002 Error) ---
+  get totalUsersCount(): number {
+    return this.allUsers.length;
   }
 
-  // Placeholder for search logic
-  onSearch(event: any) {
-    const searchTerm = event.target.value.toLowerCase();
-    // Logic to filter the users array
+  get activeUsersCount(): number {
+    return this.allUsers.filter(u => u.status === 'Active').length;
+  }
+
+  get inactiveUsersCount(): number {
+    return this.allUsers.filter(u => u.status === 'Inactive').length;
+  }
+
+  // --- MODAL LOGIC ---
+  openAddModal() {
+    this.isEditMode = false;
+    this.resetForm();
+    this.isModalOpen = true;
+  }
+
+  openEditModal(user: User) {
+    this.isEditMode = true;
+    this.editingUserEmail = user.email;
+    this.newUser = { ...user }; // Clone to avoid direct table mutation
+    this.isModalOpen = true;
+  }
+
+  closeAddModal() {
+    this.isModalOpen = false;
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.newUser = {
+      name: '',
+      email: '',
+      role: 'Employee',
+      department: '.NET',
+      status: 'Active',
+      type: 'Demo'
+    };
+    this.editingUserEmail = null;
+  }
+
+  // --- ACTION HANDLERS ---
+  saveUser() {
+    if (this.newUser.name.trim() && this.newUser.email.trim()) {
+      if (this.isEditMode && this.editingUserEmail) {
+        // Update existing
+        const index = this.allUsers.findIndex(u => u.email === this.editingUserEmail);
+        if (index !== -1) {
+          this.allUsers[index] = { ...this.newUser };
+        }
+      } else {
+        // Add new
+        this.allUsers.unshift({ ...this.newUser });
+      }
+
+      this.applySearch();
+      this.closeAddModal();
+    } else {
+      alert("Please enter both Name and Email.");
+    }
+  }
+
+  toggleStatus(user: User) {
+    user.status = user.status === 'Active' ? 'Inactive' : 'Active';
+    // We don't necessarily need to re-run applySearch unless searching by status
+  }
+
+  deleteUser(email: string) {
+    if (confirm('Are you sure you want to delete this user?')) {
+      this.allUsers = this.allUsers.filter(u => u.email !== email);
+      this.applySearch();
+    }
+  }
+
+  // --- SEARCH ---
+  applySearch() {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredUsers = this.allUsers.filter(user =>
+      user.name.toLowerCase().includes(term) ||
+      user.email.toLowerCase().includes(term) ||
+      user.role.toLowerCase().includes(term)
+    );
   }
 }
